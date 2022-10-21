@@ -43,7 +43,7 @@ web3.eth.getTransactionCount(send_account, (err, txCount) => {
         nonce : web3.utils.toHex(txCount),
         gasLimit : web3.utils.toHex(1000000),
         gasPrice : web3.utils.toHex(web3.utils.toWei("10", "gwei")),
-        to : send_account,
+        to : receive_account,
         value : "0x2C68AF0BB140000", //0.2 -> hexcode
     }
 
