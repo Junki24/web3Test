@@ -17,10 +17,10 @@ const private3 = '26c8e3a0553b8c15cb96cd0ed9b547161abd1436c8f9cdd80554ffa3284ef4
 const private4 = '07bf00afd56e3ca65fef01b656c664c360e899d0861d57002559f23e5714277b'
 const private5 = 'df57589d3d2b5f16c945c56d4fcb378c4b39b87f0789e542aa949d70856367a1'
 
-const ByteCode_File = JSON.parse(fs.readFileSync('./contract/Counter/bytecode', 'utf-8'))
+const ByteCode_File = JSON.parse(fs.readFileSync('../contract/Counter/bytecode', 'utf-8'))
 const bytecode = ByteCode_File.object
-const ABI_FILE = JSON.parse(fs.readFileSync('./contract/Counter/ABI', 'utf-8'))
-const counterContractAddress = '0xEc48051D548F8843a101F9D256aa35a1bd2e4710'
+const ABI_FILE = JSON.parse(fs.readFileSync('../contract/Counter/ABI', 'utf-8'))
+const counterContractAddress = '0x3aF060521e16464Ec565c7608073bf08FF7DD652'
 
 const privateKeyBuffer = Buffer.from(private1, "hex")
 
@@ -37,7 +37,7 @@ async function deployContract() {
         gasPrice: "0x3316f64f",
         value: null,
         data: web3Data,
-        nonce: web3.utils.toHex(10),
+        nonce: web3.utils.toHex(18),
         chainId: 1337
     }, private1);
     return transaction;
