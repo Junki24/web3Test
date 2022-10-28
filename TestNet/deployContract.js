@@ -31,7 +31,7 @@ async function deployToken(){
         gasPrice: "0x3316f64f",
         value: null,
         data: web3data,
-        nonce: web3.utils.toHex(12),
+        nonce: web3.utils.toHex(23),
         chainId: 11155111
     }, private_key)
     return rawTransaction
@@ -65,20 +65,16 @@ const testCount = async() => {
         // console.log(myContract.methods)
         // console.log(myContract.methods.incrementCount('hjihi'))
 
-        const optionData = {
-            from : send_account,
-            to : receive_account,
-            value: 1
-        }
 
-        await myContract.methods.transfer(
-            receive_account,
-            10000000000000
-        ).send({
-            value: 0,
-            from: send_account,
-            gasLimit: 2000000,
-        })
+        web3.eth
+            .sendSignedTransaction("0xf86d1a8502540be400830f4240949c17c88a4752fbe7a2aa85bad82651327af684818802c68af0bb140000801ba033bad3778da0158152727c7d296e68ea420bf51df75304802ad72dc5478af20aa0010e24ee6f956955fc6f75566cc94de48569e9d49da2c5e4223cb36831c8e2f2")
+            .once("transactionHash", hash => {
+                console.info("transactionHash", "https://sepolia.etherscan.io/tx/" + hash)
+            })
+            .once("receipt" , receipt => {
+                console.info("receipt" , receipt)
+            })
+            .on("error", console.error)
 
         // const countResult = await myContract.methods.count().call()
         // console.log(countResult)

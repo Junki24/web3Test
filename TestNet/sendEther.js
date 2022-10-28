@@ -39,11 +39,12 @@ async function runWs() {
 runWs()
 
 web3.eth.getTransactionCount(send_account, (err, txCount) => {
+    console.log(txCount)
     const txObject = {
-        nonce : web3.utils.toHex(txCount),
+        nonce : web3.utils.toHex(26),
         gasLimit : web3.utils.toHex(1000000),
         gasPrice : web3.utils.toHex(web3.utils.toWei("10", "gwei")),
-        to : receive_account,
+        to : "0x9C17C88A4752FBE7A2aA85bAD82651327AF68481",
         value : "0x2C68AF0BB140000", //0.2 -> hexcode
     }
 
@@ -52,6 +53,8 @@ web3.eth.getTransactionCount(send_account, (err, txCount) => {
 
     const serializedTx = tx.serialize()
     const raw = "0x" + serializedTx.toString("hex")
+
+    console.log(raw)
 
     // const transactionHash = web3.eth.sendSignedTransaction(raw)
     // console.log(transactionHash)
