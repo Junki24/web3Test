@@ -41,7 +41,7 @@ runWs()
 web3.eth.getTransactionCount(send_account, (err, txCount) => {
     console.log(txCount)
     const txObject = {
-        nonce : web3.utils.toHex(26),
+        nonce : web3.utils.toHex(28),
         gasLimit : web3.utils.toHex(1000000),
         gasPrice : web3.utils.toHex(web3.utils.toWei("10", "gwei")),
         to : "0x9C17C88A4752FBE7A2aA85bAD82651327AF68481",

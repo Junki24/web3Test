@@ -11,37 +11,21 @@ const privateKeyBuffer = Buffer.from(private_key, "hex")
 const functionName = 'transfer';
 
 const makeRawTransaction = async() => {
+    const contract = new web3.eth.Contract(ABI_FILE_TOKEN)
     const transaction = await web3.eth.accounts.signTransaction({
-        nonce: web3.utils.toHex(26),
+        nonce: web3.utils.toHex(31),
         chainId: 11155111,
-        data: contract.methods[functionName](
+        to: "0xF1D5811f73c8D0dbB77f93D67447c06def011446",
+        data: contract.methods["transfer"](
             "0x9C17C88A4752FBE7A2aA85bAD82651327AF68481",
-            10000000000000
+            "0x1"
         ).encodeABI(),
         value: null,
         gasPrice: "0x3B9ACA00",
         gas: "0x1c9c380"
     }, private_key);
-
-
-    console.log(transaction);
-
-    const txObject = {
-        nonce : web3.utils.toHex(26),
-        gasLimit : web3.utils.toHex(1000000),
-        gasPrice : web3.utils.toHex(web3.utils.toWei("10", "gwei")),
-        to : "0x9C17C88A4752FBE7A2aA85bAD82651327AF68481",
-        value : "0x2C68AF0BB140000", //0.2 -> hexcode
-    }
-
-    var tx = new Tx(txObject)
-    tx.sign(privateKeyBuffer)
-    var serializedTx = tx.serialize()
-
-    console.log(web3.utils.toHex(serializedTx))
-
-
-
+    console.info("transaction", transaction)
+    console.info("raw", transaction.rawTransaction)
 }
 
 makeRawTransaction()

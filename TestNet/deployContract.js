@@ -59,15 +59,32 @@ const counterContractAddress = '0x35e234c4D4B9c1D4ccedd6946284CFF28d334900'
 const erc20TokenAddress = '0xF1D5811f73c8D0dbB77f93D67447c06def011446'
 
 const myContract = new web3.eth.Contract(ABI_FILE_TOKEN, erc20TokenAddress)
+const contract = new web3.eth.Contract(ABI_FILE_TOKEN)
 
+console.log("test")
 const testCount = async() => {
+    console.log("test2")
     try {
         // console.log(myContract.methods)
         // console.log(myContract.methods.incrementCount('hjihi'))
+        const transaction = await web3.eth.accounts.signTransaction({
+            nonce: web3.utils.toHex(32),
+            chainId: 11155111,
+            to: "0xF1D5811f73c8D0dbB77f93D67447c06def011446",
+            data: myContract.methods["transfer"](
+                "0x9C17C88A4752FBE7A2aA85bAD82651327AF68481",
+                "0x1"
+            ).encodeABI(),
+            value: null,
+            gasPrice: "0x3B9ACA00",
+            gas: "0x1c9c380"
+        }, private_key);
+        console.info("transaction", transaction)
+        console.info("raw", transaction.rawTransaction)
 
 
         web3.eth
-            .sendSignedTransaction("0xf86d1a8502540be400830f4240949c17c88a4752fbe7a2aa85bad82651327af684818802c68af0bb140000801ba033bad3778da0158152727c7d296e68ea420bf51df75304802ad72dc5478af20aa0010e24ee6f956955fc6f75566cc94de48569e9d49da2c5e4223cb36831c8e2f2")
+            .sendSignedTransaction(transaction.rawTransaction)
             .once("transactionHash", hash => {
                 console.info("transactionHash", "https://sepolia.etherscan.io/tx/" + hash)
             })
