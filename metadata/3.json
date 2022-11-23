@@ -1,0 +1,19 @@
+{"attributes" : [
+       {
+          "trait_type" : "level",
+          "value" : 3
+       },
+       {
+          "trait_type" : "weapon_type",
+          "value" : "hammer"
+       },
+       {
+          "trait_type" : "power",
+          "value" : 150
+       },
+    ],
+    "description" : "thor hammer",
+    "external_url" : "https://example.com/?token_id=3",
+    "image" : "https://bafybeid5qxeb3czghd47vbuhmwbh3jdehsqpy4zhfpdl5njgotzii67plq.ipfs.nftstorage.link/images/3.png",
+    "name" : "thor hammer",
+ }

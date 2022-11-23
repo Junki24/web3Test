@@ -1,0 +1,19 @@
+{"attributes" : [
+        {
+           "trait_type" : "level",
+           "value" : 1
+        },
+        {
+           "trait_type" : "weapon_type",
+           "value" : "sword"
+        },
+        {
+           "trait_type" : "power",
+           "value" : 25
+        },
+     ],
+    "description" : "sword",
+    "external_url" : "https://example.com/?token_id=4",
+    "image" : "https://bafybeid5qxeb3czghd47vbuhmwbh3jdehsqpy4zhfpdl5njgotzii67plq.ipfs.nftstorage.link/images/4.png",
+    "name" : "sword"
+ }

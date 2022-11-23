@@ -1,0 +1,19 @@
+{"attributes" : [
+         {
+            "trait_type" : "level",
+            "value" : 1
+         },
+         {
+            "trait_type" : "weapon_type",
+            "value" : "shield"
+         },
+         {
+            "trait_type" : "power",
+            "value" : 25
+         },
+      ],
+    "description" : "shield",
+    "external_url" : "https://example.com/?token_id=5",
+    "image" : "https://bafybeid5qxeb3czghd47vbuhmwbh3jdehsqpy4zhfpdl5njgotzii67plq.ipfs.nftstorage.link/images/5.png",
+    "name" : "shield"
+ }
